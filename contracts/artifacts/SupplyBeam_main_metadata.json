@@ -1,0 +1,411 @@
+{
+	"compiler": {
+		"version": "0.8.24+commit.e11b9ed9"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [
+					{
+						"internalType": "string",
+						"name": "title",
+						"type": "string"
+					},
+					{
+						"internalType": "address",
+						"name": "owner_address",
+						"type": "address"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "constructor"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "by",
+						"type": "address"
+					},
+					{
+						"indexed": true,
+						"internalType": "string",
+						"name": "newstate",
+						"type": "string"
+					},
+					{
+						"components": [
+							{
+								"internalType": "string",
+								"name": "name",
+								"type": "string"
+							},
+							{
+								"internalType": "string",
+								"name": "state",
+								"type": "string"
+							}
+						],
+						"indexed": true,
+						"internalType": "struct object",
+						"name": "newobject",
+						"type": "tuple"
+					},
+					{
+						"components": [
+							{
+								"components": [
+									{
+										"internalType": "string",
+										"name": "name",
+										"type": "string"
+									},
+									{
+										"internalType": "string",
+										"name": "state",
+										"type": "string"
+									}
+								],
+								"internalType": "struct object",
+								"name": "object",
+								"type": "tuple"
+							},
+							{
+								"internalType": "address",
+								"name": "by",
+								"type": "address"
+							},
+							{
+								"internalType": "uint256",
+								"name": "timestamp",
+								"type": "uint256"
+							},
+							{
+								"internalType": "string",
+								"name": "oldstate",
+								"type": "string"
+							},
+							{
+								"internalType": "string",
+								"name": "newstate",
+								"type": "string"
+							},
+							{
+								"internalType": "string",
+								"name": "notes",
+								"type": "string"
+							}
+						],
+						"indexed": false,
+						"internalType": "struct update",
+						"name": "update",
+						"type": "tuple"
+					}
+				],
+				"name": "Create",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "by",
+						"type": "address"
+					},
+					{
+						"components": [
+							{
+								"internalType": "string",
+								"name": "name",
+								"type": "string"
+							},
+							{
+								"internalType": "string",
+								"name": "state",
+								"type": "string"
+							}
+						],
+						"indexed": true,
+						"internalType": "struct object",
+						"name": "newobject",
+						"type": "tuple"
+					},
+					{
+						"components": [
+							{
+								"components": [
+									{
+										"internalType": "string",
+										"name": "name",
+										"type": "string"
+									},
+									{
+										"internalType": "string",
+										"name": "state",
+										"type": "string"
+									}
+								],
+								"internalType": "struct object",
+								"name": "object",
+								"type": "tuple"
+							},
+							{
+								"internalType": "address",
+								"name": "by",
+								"type": "address"
+							},
+							{
+								"internalType": "uint256",
+								"name": "timestamp",
+								"type": "uint256"
+							},
+							{
+								"internalType": "string",
+								"name": "oldstate",
+								"type": "string"
+							},
+							{
+								"internalType": "string",
+								"name": "newstate",
+								"type": "string"
+							},
+							{
+								"internalType": "string",
+								"name": "notes",
+								"type": "string"
+							}
+						],
+						"indexed": false,
+						"internalType": "struct update",
+						"name": "update",
+						"type": "tuple"
+					}
+				],
+				"name": "Destroy",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "by",
+						"type": "address"
+					},
+					{
+						"indexed": true,
+						"internalType": "string",
+						"name": "newstate",
+						"type": "string"
+					},
+					{
+						"components": [
+							{
+								"internalType": "string",
+								"name": "name",
+								"type": "string"
+							},
+							{
+								"internalType": "string",
+								"name": "state",
+								"type": "string"
+							}
+						],
+						"indexed": true,
+						"internalType": "struct object",
+						"name": "newobject",
+						"type": "tuple"
+					},
+					{
+						"components": [
+							{
+								"components": [
+									{
+										"internalType": "string",
+										"name": "name",
+										"type": "string"
+									},
+									{
+										"internalType": "string",
+										"name": "state",
+										"type": "string"
+									}
+								],
+								"internalType": "struct object",
+								"name": "object",
+								"type": "tuple"
+							},
+							{
+								"internalType": "address",
+								"name": "by",
+								"type": "address"
+							},
+							{
+								"internalType": "uint256",
+								"name": "timestamp",
+								"type": "uint256"
+							},
+							{
+								"internalType": "string",
+								"name": "oldstate",
+								"type": "string"
+							},
+							{
+								"internalType": "string",
+								"name": "newstate",
+								"type": "string"
+							},
+							{
+								"internalType": "string",
+								"name": "notes",
+								"type": "string"
+							}
+						],
+						"indexed": false,
+						"internalType": "struct update",
+						"name": "update",
+						"type": "tuple"
+					}
+				],
+				"name": "Update",
+				"type": "event"
+			},
+			{
+				"inputs": [
+					{
+						"components": [
+							{
+								"internalType": "string",
+								"name": "name",
+								"type": "string"
+							},
+							{
+								"internalType": "string",
+								"name": "state",
+								"type": "string"
+							}
+						],
+						"internalType": "struct object",
+						"name": "obj",
+						"type": "tuple"
+					}
+				],
+				"name": "create",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "string",
+						"name": "",
+						"type": "string"
+					}
+				],
+				"name": "lock",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "name",
+				"outputs": [
+					{
+						"internalType": "string",
+						"name": "",
+						"type": "string"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "string",
+						"name": "",
+						"type": "string"
+					}
+				],
+				"name": "objects",
+				"outputs": [
+					{
+						"internalType": "string",
+						"name": "name",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "state",
+						"type": "string"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "owner",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"contracts/SuplyBeam_main.sol": "SupplyBeam_main"
+		},
+		"evmVersion": "shanghai",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"contracts/SuplyBeam_main.sol": {
+			"keccak256": "0x381770409332d80e263c977d56944ec3621029e575ca31b1994b1367a07eaf51",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://8cb4d3a8f97460e4efd7f671ff51d3359757f72b3f293ceaa68951057509f3cb",
+				"dweb:/ipfs/QmV7Tsr86SuZXzdCsDCmGzSqo6KiHiAc9CVqakJjipuMR5"
+			]
+		}
+	},
+	"version": 1
+}

@@ -279,6 +279,11 @@
 			{
 				"inputs": [
 					{
+						"internalType": "address",
+						"name": "by",
+						"type": "address"
+					},
+					{
 						"components": [
 							{
 								"internalType": "string",
@@ -399,11 +404,11 @@
 	},
 	"sources": {
 		"contracts/SuplyBeam_main.sol": {
-			"keccak256": "0x381770409332d80e263c977d56944ec3621029e575ca31b1994b1367a07eaf51",
+			"keccak256": "0x92fa70f86a53afd0db03650470159106f3be26a637ca566e9aea5e603b396d13",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://8cb4d3a8f97460e4efd7f671ff51d3359757f72b3f293ceaa68951057509f3cb",
-				"dweb:/ipfs/QmV7Tsr86SuZXzdCsDCmGzSqo6KiHiAc9CVqakJjipuMR5"
+				"bzz-raw://dd768a25877ced2c15bffd05aa1e3f4bd93d71654fe1bfe2572f698a1248c6a2",
+				"dweb:/ipfs/QmWUP9DjuoPfj4SS7E6qc76qtJCFYhD5Hdd17PZaUNjt5T"
 			]
 		}
 	},

@@ -32,7 +32,9 @@ contract SupplyBeam_main {
         owner = owner_address;
     }
 
-    function create(object calldata obj) public {
+    function create(address by, object calldata obj) public {
         objects[obj.name] = obj;
+        update memory u = update(obj, by, block.timestamp, "N/A", obj.state, "");
+        emit Create(by, obj.state, obj, u);
     }
 }

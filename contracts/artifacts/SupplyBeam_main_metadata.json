@@ -550,11 +550,11 @@
 	},
 	"sources": {
 		"contracts/SuplyBeam_main.sol": {
-			"keccak256": "0xd8add38458f0a22021af07a01ed35c687f7a45546b2f222bbce1512561b57311",
+			"keccak256": "0x5b416ff481896e2b9826fe6cf4904fe77c300acfede2253645cefa595c82d96b",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://ce89ec54dce21d8cef774f03c77ed11bfea7469398e8c6f11af6a352940b5202",
-				"dweb:/ipfs/QmYJFbpwb43xeWJFXHNkATVcgi98mWUAMsetvtteuTKZK5"
+				"bzz-raw://68aeb3bcee43c1b3823b18b6a9ce6f93ca282d51a2de3b40a42d1aa92155caf3",
+				"dweb:/ipfs/QmPTLx3QZnUE6k7gDiakQAm5KCkfWb7CiTYjzbdZD3teSU"
 			]
 		}
 	},

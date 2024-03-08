@@ -51,6 +51,10 @@ contract SupplyBeam_main {
         require(objectExists(obj_name));
         _;
     }
+    modifier notObjExists(string calldata obj_name) {
+        require(!objectExists(obj_name));
+        _;
+    }
     modifier objLocked(string calldata obj_name) {
         require(isObjectLocked(obj_name), "Object not locked");
         _;
@@ -88,7 +92,7 @@ contract SupplyBeam_main {
         return objects[obj_name];
     }
 
-    function _create(string calldata obj_name, state memory obj_state) public {
+    function _create(string calldata obj_name, state memory obj_state) notObjExists(obj_name) public {
         address by = msg.sender;
         obj_state.applied_by = by;
         object memory obj = object(obj_name, obj_state);

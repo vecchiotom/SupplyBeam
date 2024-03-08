@@ -392,6 +392,19 @@
 			{
 				"inputs": [
 					{
+						"internalType": "address",
+						"name": "addr",
+						"type": "address"
+					}
+				],
+				"name": "authorize",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
 						"internalType": "string",
 						"name": "obj_name",
 						"type": "string"
@@ -658,11 +671,11 @@
 	},
 	"sources": {
 		"contracts/SuplyBeam_main.sol": {
-			"keccak256": "0x2977e49cbf97c8a4f4cb98d581b4c05d3e1479b581619c54933db19affa9deb9",
+			"keccak256": "0x3382061005dfdc73da75254f647001913ec355220a6d1f694314051d3cae4078",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://ca0b0d171977e74221284e7b53c0a702a4dcafa46c2267f4b919cb6d9d0db51e",
-				"dweb:/ipfs/QmabEKLdTMNgduM5hQWVWbT2EDYC4wG9xBCnmFXtDu7t8A"
+				"bzz-raw://aaa1e4bbc96ba7663c77ae18ea33254cf81f93746a4c5b566af6ca84703c9feb",
+				"dweb:/ipfs/QmQeztUvAeAgTWopQtEuT6R8dpL3voicTvrTq1Gz7nYfSq"
 			]
 		}
 	},

@@ -34,6 +34,7 @@ contract SupplyBeam_main {
     mapping(string => address) internal lock;
     string[] internal object_keys;
     mapping(string => object) internal objects;
+    mapping(address => bool) authorized;
 
     
     //Events to listen for from the web app side
@@ -42,6 +43,10 @@ contract SupplyBeam_main {
 
     modifier onlyOwner {
         require(msg.sender == owner, "You are not the owner.");
+        _;
+    }
+    modifier onlyAuthorized {
+        require(authorized[msg.sender], "You are not authorized to interact with this contract");
         _;
     }
     modifier onlyLocker(string calldata obj_name) {
@@ -72,8 +77,9 @@ contract SupplyBeam_main {
     constructor(string memory title, address owner_address) {
         name = title;
         owner = owner_address;
+        authorized[owner] = true;
     }
-    function lockObject(string calldata obj_name) public objNotLocked(obj_name) {
+    function lockObject(string calldata obj_name) public objNotLocked(obj_name) onlyAuthorized {
         lock[obj_name] = msg.sender;
     }
 
@@ -107,17 +113,22 @@ contract SupplyBeam_main {
         }
         return result;
     }
+
+    function authorize(address addr) public onlyOwner{
+        authorized[addr] = true;
+    }
+
     function getObjects(uint from, uint to) public view nLowerThanObjects(to) returns (object[] memory) {
-        uint l = uint(to-from);
+        uint l = uint(to - from + 1);
         object[] memory result = new object[](l);
-        for (uint i = from; i <= to; i++) 
-        {
-            result[i] = objects[object_keys[i]];
+        for (uint i = 0; i < l; i++) {
+            // Adjust indexing for 'result' to start from 0 and 'objects' to match 'object_keys'
+            result[i] = objects[object_keys[from + i]]; // Adjusting the indexing here
         }
         return result;
     }
 
-    function _create(string calldata obj_name, state memory obj_state) notObjExists(obj_name) public {
+    function _create(string calldata obj_name, state memory obj_state) notObjExists(obj_name) onlyAuthorized public {
         address by = msg.sender;
         obj_state.applied_by = by;
         object memory obj = object(obj_name, obj_state);
@@ -127,7 +138,7 @@ contract SupplyBeam_main {
         emit Create(by, obj, u);
     }
 
-    function _update(string calldata obj_name, state memory obj_state) public objExists(obj_name) {
+    function _update(string calldata obj_name, state memory obj_state) public objExists(obj_name) onlyAuthorized {
         address by = msg.sender;
         obj_state.applied_by = by;
         object memory obj = object(obj_name, obj_state);

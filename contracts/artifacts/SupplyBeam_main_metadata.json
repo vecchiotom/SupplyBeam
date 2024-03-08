@@ -403,6 +403,48 @@
 				"type": "function"
 			},
 			{
+				"inputs": [],
+				"name": "getAllObjects",
+				"outputs": [
+					{
+						"components": [
+							{
+								"internalType": "string",
+								"name": "name",
+								"type": "string"
+							},
+							{
+								"components": [
+									{
+										"internalType": "string",
+										"name": "name",
+										"type": "string"
+									},
+									{
+										"internalType": "string",
+										"name": "notes",
+										"type": "string"
+									},
+									{
+										"internalType": "address",
+										"name": "applied_by",
+										"type": "address"
+									}
+								],
+								"internalType": "struct state",
+								"name": "state",
+								"type": "tuple"
+							}
+						],
+						"internalType": "struct object[]",
+						"name": "",
+						"type": "tuple[]"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
 				"inputs": [
 					{
 						"internalType": "string",
@@ -445,6 +487,72 @@
 						"internalType": "struct object",
 						"name": "",
 						"type": "tuple"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "from",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "to",
+						"type": "uint256"
+					}
+				],
+				"name": "getObjects",
+				"outputs": [
+					{
+						"components": [
+							{
+								"internalType": "string",
+								"name": "name",
+								"type": "string"
+							},
+							{
+								"components": [
+									{
+										"internalType": "string",
+										"name": "name",
+										"type": "string"
+									},
+									{
+										"internalType": "string",
+										"name": "notes",
+										"type": "string"
+									},
+									{
+										"internalType": "address",
+										"name": "applied_by",
+										"type": "address"
+									}
+								],
+								"internalType": "struct state",
+								"name": "state",
+								"type": "tuple"
+							}
+						],
+						"internalType": "struct object[]",
+						"name": "",
+						"type": "tuple[]"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "getObjectsNumber",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
 					}
 				],
 				"stateMutability": "view",
@@ -550,11 +658,11 @@
 	},
 	"sources": {
 		"contracts/SuplyBeam_main.sol": {
-			"keccak256": "0x5b416ff481896e2b9826fe6cf4904fe77c300acfede2253645cefa595c82d96b",
+			"keccak256": "0x2977e49cbf97c8a4f4cb98d581b4c05d3e1479b581619c54933db19affa9deb9",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://68aeb3bcee43c1b3823b18b6a9ce6f93ca282d51a2de3b40a42d1aa92155caf3",
-				"dweb:/ipfs/QmPTLx3QZnUE6k7gDiakQAm5KCkfWb7CiTYjzbdZD3teSU"
+				"bzz-raw://ca0b0d171977e74221284e7b53c0a702a4dcafa46c2267f4b919cb6d9d0db51e",
+				"dweb:/ipfs/QmabEKLdTMNgduM5hQWVWbT2EDYC4wG9xBCnmFXtDu7t8A"
 			]
 		}
 	},

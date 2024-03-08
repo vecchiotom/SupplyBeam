@@ -32,6 +32,7 @@ contract SupplyBeam_main {
     string public name;
     address public owner;
     mapping(string => address) internal lock;
+    string[] internal object_keys;
     mapping(string => object) internal objects;
 
     
@@ -63,6 +64,10 @@ contract SupplyBeam_main {
         require(!isObjectLocked(obj_name), "Object locked");
         _;
     }
+    modifier nLowerThanObjects(uint n) {
+        require(n<object_keys.length, "index out of range");
+        _;
+    }
     
     constructor(string memory title, address owner_address) {
         name = title;
@@ -91,12 +96,33 @@ contract SupplyBeam_main {
     function getObject(string calldata obj_name) public view objExists(obj_name) returns (object memory) {
         return objects[obj_name];
     }
+    function getObjectsNumber() public view returns(uint){
+        return object_keys.length;
+    }
+    function getAllObjects() public view returns (object[] memory) {
+        object[] memory result = new object[](object_keys.length);
+        for (uint i = 0; i < object_keys.length; i++) 
+        {
+            result[i] = objects[object_keys[i]];
+        }
+        return result;
+    }
+    function getObjects(uint from, uint to) public view nLowerThanObjects(to) returns (object[] memory) {
+        uint l = uint(to-from);
+        object[] memory result = new object[](l);
+        for (uint i = from; i <= to; i++) 
+        {
+            result[i] = objects[object_keys[i]];
+        }
+        return result;
+    }
 
     function _create(string calldata obj_name, state memory obj_state) notObjExists(obj_name) public {
         address by = msg.sender;
         obj_state.applied_by = by;
         object memory obj = object(obj_name, obj_state);
         objects[obj.name] = obj;
+        object_keys.push(obj.name);
         update memory u = update(obj, by, block.timestamp, obj.state, obj.state, obj.state.notes);
         emit Create(by, obj, u);
     }

@@ -362,6 +362,8 @@
         <script src="js/demo/chart-pie-demo.js"></script>
         <script type="module">
             import { ethers } from "./vendor/ethers/ethers-5.2.esm.min.js";
+            const contractAddress = "0x9f871a98413C5fa0D72d0f2AB88C1d9cD58C3383";
+            var contract;
             var provider;
             var signer;
             $("#main-content").load("/main.html");
@@ -376,6 +378,13 @@
                         $(".not-logged-in").hide();
                         $("#address").text(address)
                         $(".logged-in").show()
+                        $.getJSON("/SupplyBeam_main.json", (abi) => {
+                            contract = new ethers.Contract(contractAddress, abi, signer);
+                            (async () => {
+                                let result = await contract.getObjectsNumber()
+                                $("#gascost").text(result.toString());
+                            })()
+                        })
                     }).catch((error) => {
                         console.error("Error retrieving public address:", error);
                     });

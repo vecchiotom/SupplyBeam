@@ -1,0 +1,639 @@
+[
+	{
+		"inputs": [
+			{
+				"internalType": "string",
+				"name": "title",
+				"type": "string"
+			},
+			{
+				"internalType": "address",
+				"name": "owner_address",
+				"type": "address"
+			}
+		],
+		"stateMutability": "nonpayable",
+		"type": "constructor"
+	},
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": true,
+				"internalType": "address",
+				"name": "by",
+				"type": "address"
+			},
+			{
+				"components": [
+					{
+						"internalType": "string",
+						"name": "name",
+						"type": "string"
+					},
+					{
+						"components": [
+							{
+								"internalType": "string",
+								"name": "name",
+								"type": "string"
+							},
+							{
+								"internalType": "string",
+								"name": "notes",
+								"type": "string"
+							},
+							{
+								"internalType": "address",
+								"name": "applied_by",
+								"type": "address"
+							}
+						],
+						"internalType": "struct state",
+						"name": "state",
+						"type": "tuple"
+					}
+				],
+				"indexed": true,
+				"internalType": "struct object",
+				"name": "newobject",
+				"type": "tuple"
+			},
+			{
+				"components": [
+					{
+						"components": [
+							{
+								"internalType": "string",
+								"name": "name",
+								"type": "string"
+							},
+							{
+								"components": [
+									{
+										"internalType": "string",
+										"name": "name",
+										"type": "string"
+									},
+									{
+										"internalType": "string",
+										"name": "notes",
+										"type": "string"
+									},
+									{
+										"internalType": "address",
+										"name": "applied_by",
+										"type": "address"
+									}
+								],
+								"internalType": "struct state",
+								"name": "state",
+								"type": "tuple"
+							}
+						],
+						"internalType": "struct object",
+						"name": "object",
+						"type": "tuple"
+					},
+					{
+						"internalType": "address",
+						"name": "by",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "timestamp",
+						"type": "uint256"
+					},
+					{
+						"components": [
+							{
+								"internalType": "string",
+								"name": "name",
+								"type": "string"
+							},
+							{
+								"internalType": "string",
+								"name": "notes",
+								"type": "string"
+							},
+							{
+								"internalType": "address",
+								"name": "applied_by",
+								"type": "address"
+							}
+						],
+						"internalType": "struct state",
+						"name": "oldstate",
+						"type": "tuple"
+					},
+					{
+						"components": [
+							{
+								"internalType": "string",
+								"name": "name",
+								"type": "string"
+							},
+							{
+								"internalType": "string",
+								"name": "notes",
+								"type": "string"
+							},
+							{
+								"internalType": "address",
+								"name": "applied_by",
+								"type": "address"
+							}
+						],
+						"internalType": "struct state",
+						"name": "newstate",
+						"type": "tuple"
+					},
+					{
+						"internalType": "string",
+						"name": "notes",
+						"type": "string"
+					}
+				],
+				"indexed": false,
+				"internalType": "struct update",
+				"name": "update",
+				"type": "tuple"
+			}
+		],
+		"name": "Create",
+		"type": "event"
+	},
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": true,
+				"internalType": "address",
+				"name": "by",
+				"type": "address"
+			},
+			{
+				"components": [
+					{
+						"internalType": "string",
+						"name": "name",
+						"type": "string"
+					},
+					{
+						"components": [
+							{
+								"internalType": "string",
+								"name": "name",
+								"type": "string"
+							},
+							{
+								"internalType": "string",
+								"name": "notes",
+								"type": "string"
+							},
+							{
+								"internalType": "address",
+								"name": "applied_by",
+								"type": "address"
+							}
+						],
+						"internalType": "struct state",
+						"name": "state",
+						"type": "tuple"
+					}
+				],
+				"indexed": true,
+				"internalType": "struct object",
+				"name": "newobject",
+				"type": "tuple"
+			},
+			{
+				"components": [
+					{
+						"components": [
+							{
+								"internalType": "string",
+								"name": "name",
+								"type": "string"
+							},
+							{
+								"components": [
+									{
+										"internalType": "string",
+										"name": "name",
+										"type": "string"
+									},
+									{
+										"internalType": "string",
+										"name": "notes",
+										"type": "string"
+									},
+									{
+										"internalType": "address",
+										"name": "applied_by",
+										"type": "address"
+									}
+								],
+								"internalType": "struct state",
+								"name": "state",
+								"type": "tuple"
+							}
+						],
+						"internalType": "struct object",
+						"name": "object",
+						"type": "tuple"
+					},
+					{
+						"internalType": "address",
+						"name": "by",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "timestamp",
+						"type": "uint256"
+					},
+					{
+						"components": [
+							{
+								"internalType": "string",
+								"name": "name",
+								"type": "string"
+							},
+							{
+								"internalType": "string",
+								"name": "notes",
+								"type": "string"
+							},
+							{
+								"internalType": "address",
+								"name": "applied_by",
+								"type": "address"
+							}
+						],
+						"internalType": "struct state",
+						"name": "oldstate",
+						"type": "tuple"
+					},
+					{
+						"components": [
+							{
+								"internalType": "string",
+								"name": "name",
+								"type": "string"
+							},
+							{
+								"internalType": "string",
+								"name": "notes",
+								"type": "string"
+							},
+							{
+								"internalType": "address",
+								"name": "applied_by",
+								"type": "address"
+							}
+						],
+						"internalType": "struct state",
+						"name": "newstate",
+						"type": "tuple"
+					},
+					{
+						"internalType": "string",
+						"name": "notes",
+						"type": "string"
+					}
+				],
+				"indexed": false,
+				"internalType": "struct update",
+				"name": "update",
+				"type": "tuple"
+			}
+		],
+		"name": "Update",
+		"type": "event"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "string",
+				"name": "obj_name",
+				"type": "string"
+			},
+			{
+				"components": [
+					{
+						"internalType": "string",
+						"name": "name",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "notes",
+						"type": "string"
+					},
+					{
+						"internalType": "address",
+						"name": "applied_by",
+						"type": "address"
+					}
+				],
+				"internalType": "struct state",
+				"name": "obj_state",
+				"type": "tuple"
+			}
+		],
+		"name": "_create",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "string",
+				"name": "obj_name",
+				"type": "string"
+			},
+			{
+				"components": [
+					{
+						"internalType": "string",
+						"name": "name",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "notes",
+						"type": "string"
+					},
+					{
+						"internalType": "address",
+						"name": "applied_by",
+						"type": "address"
+					}
+				],
+				"internalType": "struct state",
+				"name": "obj_state",
+				"type": "tuple"
+			}
+		],
+		"name": "_update",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "addr",
+				"type": "address"
+			}
+		],
+		"name": "authorize",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "string",
+				"name": "obj_name",
+				"type": "string"
+			}
+		],
+		"name": "forceUnlockObject",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "getAllObjects",
+		"outputs": [
+			{
+				"components": [
+					{
+						"internalType": "string",
+						"name": "name",
+						"type": "string"
+					},
+					{
+						"components": [
+							{
+								"internalType": "string",
+								"name": "name",
+								"type": "string"
+							},
+							{
+								"internalType": "string",
+								"name": "notes",
+								"type": "string"
+							},
+							{
+								"internalType": "address",
+								"name": "applied_by",
+								"type": "address"
+							}
+						],
+						"internalType": "struct state",
+						"name": "state",
+						"type": "tuple"
+					}
+				],
+				"internalType": "struct object[]",
+				"name": "",
+				"type": "tuple[]"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "string",
+				"name": "obj_name",
+				"type": "string"
+			}
+		],
+		"name": "getObject",
+		"outputs": [
+			{
+				"components": [
+					{
+						"internalType": "string",
+						"name": "name",
+						"type": "string"
+					},
+					{
+						"components": [
+							{
+								"internalType": "string",
+								"name": "name",
+								"type": "string"
+							},
+							{
+								"internalType": "string",
+								"name": "notes",
+								"type": "string"
+							},
+							{
+								"internalType": "address",
+								"name": "applied_by",
+								"type": "address"
+							}
+						],
+						"internalType": "struct state",
+						"name": "state",
+						"type": "tuple"
+					}
+				],
+				"internalType": "struct object",
+				"name": "",
+				"type": "tuple"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "from",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "to",
+				"type": "uint256"
+			}
+		],
+		"name": "getObjects",
+		"outputs": [
+			{
+				"components": [
+					{
+						"internalType": "string",
+						"name": "name",
+						"type": "string"
+					},
+					{
+						"components": [
+							{
+								"internalType": "string",
+								"name": "name",
+								"type": "string"
+							},
+							{
+								"internalType": "string",
+								"name": "notes",
+								"type": "string"
+							},
+							{
+								"internalType": "address",
+								"name": "applied_by",
+								"type": "address"
+							}
+						],
+						"internalType": "struct state",
+						"name": "state",
+						"type": "tuple"
+					}
+				],
+				"internalType": "struct object[]",
+				"name": "",
+				"type": "tuple[]"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "getObjectsNumber",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "string",
+				"name": "obj_name",
+				"type": "string"
+			}
+		],
+		"name": "isObjectLocked",
+		"outputs": [
+			{
+				"internalType": "bool",
+				"name": "",
+				"type": "bool"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "string",
+				"name": "obj_name",
+				"type": "string"
+			}
+		],
+		"name": "lockObject",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "name",
+		"outputs": [
+			{
+				"internalType": "string",
+				"name": "",
+				"type": "string"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "owner",
+		"outputs": [
+			{
+				"internalType": "address",
+				"name": "",
+				"type": "address"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "string",
+				"name": "obj_name",
+				"type": "string"
+			}
+		],
+		"name": "unlockObject",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	}
+]

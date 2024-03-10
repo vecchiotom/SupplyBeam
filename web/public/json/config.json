@@ -1,3 +1,4 @@
 {
-    "contract": "0x9f871a98413C5fa0D72d0f2AB88C1d9cD58C3383"
+    "contract": "0x9f871a98413C5fa0D72d0f2AB88C1d9cD58C3383",
+    "coinpriceapi": "https://min-api.cryptocompare.com/data/price?fsym=ETH&tsyms=EUR"
 }

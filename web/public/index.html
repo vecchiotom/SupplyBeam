@@ -42,7 +42,7 @@
             <hr class="sidebar-divider my-0">
 
             <!-- Nav Item - Dashboard -->
-            <li class="nav-item active">
+            <li class="nav-item active" id="dashboard_button">
                 <a class="nav-link" href="#main">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Dashboard</span></a>
@@ -362,10 +362,11 @@
         <script src="js/demo/chart-pie-demo.js"></script>
         <script type="module">
             import { ethers } from "./vendor/ethers/ethers-5.2.esm.min.js";
-            const contractAddress = "0x9f871a98413C5fa0D72d0f2AB88C1d9cD58C3383";
+            var contractAddress = "0x9f871a98413C5fa0D72d0f2AB88C1d9cD58C3383";
             var contract;
             var provider;
             var signer;
+            var coinAPI;
             $("#main-content").load("/main.html");
             $('.logged-in').hide();
             $("a.not-logged-in").on("click", async function () {
@@ -382,10 +383,9 @@
                             $.getJSON("/json/config.json", (config) => {
                                 contractAddress = config.contract;
                                 contract = new ethers.Contract(contractAddress, abi, signer);
-                                (async () => {
-                                    let result = await contract.getObjectsNumber()
-                                    $("#gascost").text(result.toString());
-                                })()
+                                coinAPI = config.coinpriceapi;
+                                updateTopBar();
+                                setInterval(updateTopBar, 5000);
                             })
                         })
                     }).catch((error) => {
@@ -393,6 +393,18 @@
                     });
                 }
             });
+
+            const updateTopBar = async () => {
+                if ($("#dashboard_button").hasClass("active")) {
+                    let result = await contract.getObjectsNumber()
+                    $("#totalobjects").text(result.toString());
+                    result = await provider.getGasPrice();
+                    result = ethers.utils.formatUnits(result);
+                    $.getJSON(coinAPI, (data) => {
+                        $("#gasprice").text((result * data.EUR).toFixed(6).toString() + "€");
+                    })
+                }
+            }
 
             $(document).ready(function () {
                 $('a').click(function (event) {

@@ -394,31 +394,41 @@
                 }
             });
 
+            $(document).ready(function () {
+                $('a').click(function (event) {
+                    var href = $(this).attr('href');
+                    var isactive = $(this).parent("li").hasClass("active");
+                    if (href.startsWith('#') && href.length > 1 && !isactive) {
+                        var newPageName = href.split('#')[1];
+                        console.log(newPageName);
+                        $("li.active").removeClass("active");
+                        $(this).parent("li").addClass("active");
+                        $("#main-content").load("/" + newPageName + ".html")
+                        updateTopBar();
+                    }
+                });
+            });
+
+            // MAIN PAGE LOGIC
+
             const updateTopBar = async () => {
+                console.log("working")
                 if ($("#dashboard_button").hasClass("active")) {
                     let result = await contract.getObjectsNumber()
                     $("#totalobjects").text(result.toString());
                     result = await provider.getGasPrice();
                     result = ethers.utils.formatUnits(result);
                     $.getJSON(coinAPI, (data) => {
-                        $("#gasprice").text((result * data.EUR).toFixed(6).toString() + "€");
+                        $("#gasprice").text("≈" + (result * data.EUR).toFixed(6).toString() + "€");
                     })
                 }
             }
 
-            $(document).ready(function () {
-                $('a').click(function (event) {
-                    var href = $(this).attr('href');
-                    var isactive = $(this).hasClass("active");
-                    if (href.startsWith('#') && href.length > 1 && !isactive) {
-                        var newPageName = href.split('#')[1];
-                        console.log(newPageName);
-                        $(this).parent().addClass("active");
-                        $("li.active").removeClass("active");
-                        $("#main-content").load("/" + newPageName + ".html")
-                    }
-                });
-            });
+            // TRACK PAGE LOGIC
+
+            // MANAGE PAGE LOGIC
+
+            // ADMIN PAGE LOGIC
 
 
         </script>

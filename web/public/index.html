@@ -378,12 +378,15 @@
                         $(".not-logged-in").hide();
                         $("#address").text(address)
                         $(".logged-in").show()
-                        $.getJSON("/SupplyBeam_main.json", (abi) => {
-                            contract = new ethers.Contract(contractAddress, abi, signer);
-                            (async () => {
-                                let result = await contract.getObjectsNumber()
-                                $("#gascost").text(result.toString());
-                            })()
+                        $.getJSON("/json/ABI.json", (abi) => {
+                            $.getJSON("/json/config.json", (config) => {
+                                contractAddress = config.contract;
+                                contract = new ethers.Contract(contractAddress, abi, signer);
+                                (async () => {
+                                    let result = await contract.getObjectsNumber()
+                                    $("#gascost").text(result.toString());
+                                })()
+                            })
                         })
                     }).catch((error) => {
                         console.error("Error retrieving public address:", error);
